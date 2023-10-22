@@ -7,6 +7,6 @@ COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
 
 CMD mlflow server \
-    --backend-store-uri postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB} \
+    --backend-store-uri postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@mlflow-postgres:5432/${POSTGRES_DB} \
     --artifacts-destination s3://mlflow \
     --host 0.0.0.0 \
